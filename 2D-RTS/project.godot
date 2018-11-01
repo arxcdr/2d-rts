@@ -11,6 +11,7 @@ config_version=3
 [application]
 
 config/name="2D RTS"
+run/main_scene="res://Scenes/world.tscn"
 config/icon="res://icon.png"
 
 [rendering]
