@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/unit.gd" type="Script" id=1]
+[ext_resource path="res://test.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Unit/medievalUnit_06.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.30989, 12.7378 )
+
+[node name="unit" type="KinematicBody2D" index="0"]
+
+position = Vector2( 273.786, 153.467 )
+input_pickable = true
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable" ]
+__meta__ = {
+"_edit_group_": true
+}
+selected = false
+
+[node name="box" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+
+[node name="shape" type="CollisionShape2D" parent="." index="2"]
+
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_unit_input_event"]
+
+
