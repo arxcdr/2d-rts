@@ -88,11 +88,14 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+panSpeed = 10.0
 speed = 19.0
 zoomSpeed = 10.0
 zoomMargin = 0.1
 zoomMin = 0.5
 zoomMax = 3.0
+marginX = 200.0
+marginY = 200.0
 
 [node name="building1" type="Node2D" parent="." index="3"]
 
