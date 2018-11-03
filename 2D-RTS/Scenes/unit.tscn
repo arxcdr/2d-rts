@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 8.30989, 12.7378 )
 
-[node name="unit" type="KinematicBody2D" index="0"]
+[node name="unit" type="KinematicBody2D"]
 
 position = Vector2( 273.786, 153.467 )
 input_pickable = true
@@ -25,7 +25,9 @@ selected = false
 
 [node name="box" type="Sprite" parent="." index="0"]
 
+visible = false
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
