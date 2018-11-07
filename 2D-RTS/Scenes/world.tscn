@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/WorldManager.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/tileset_env.res" type="TileSet" id=2]
@@ -8,6 +8,12 @@
 [ext_resource path="res://Sprites/Structure/medievalStructure_01.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/unit.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/UI/red_panel.png" type="Texture" id=8]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 576, 352, 576, 256, 2432, 0, 2432, 1216, 0, 1216, 512, 352, 0, 0, 512, 256, 544, 224 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 5, 4, 6, 7 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 8, 6, 2 ), PoolIntArray( 8, 2, 1 ) ]
+outlines = [ PoolVector2Array( 0, 0, 2432, 0, 2432, 1216, 0, 1216 ), PoolVector2Array( 512, 256, 544, 224, 576, 256, 576, 352, 512, 352 ) ]
 
 [node name="world" type="Node2D" index="0"]
 
@@ -62,8 +68,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Camera2D" type="Camera2D" parent="." index="2"]
+[node name="nav" type="Navigation2D" parent="." index="2"]
 
+[node name="polygon" type="NavigationPolygonInstance" parent="nav" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+position = Vector2( 512, 320 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -99,7 +113,7 @@ zoomMax = 3.0
 marginX = 200.0
 marginY = 200.0
 
-[node name="building1" type="Node2D" parent="." index="3"]
+[node name="building1" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 __meta__ = {
@@ -116,37 +130,42 @@ texture = ExtResource( 5 )
 position = Vector2( 544, 256 )
 texture = ExtResource( 6 )
 
-[node name="unit_1" parent="." index="4" groups=[
+[node name="unit_1" parent="." index="5" groups=[
 "units",
 ] instance=ExtResource( 7 )]
 
 position = Vector2( 96, 64 )
+speed = 100
 
-[node name="unit_2" parent="." index="5" groups=[
+[node name="unit_2" parent="." index="6" groups=[
 "units",
 ] instance=ExtResource( 7 )]
 
 position = Vector2( 224, 64 )
+speed = 100
 
-[node name="unit_3" parent="." index="6" groups=[
+[node name="unit_3" parent="." index="7" groups=[
 "units",
 ] instance=ExtResource( 7 )]
 
 position = Vector2( 384, 64 )
+speed = 100
 
-[node name="unit_4" parent="." index="7" groups=[
+[node name="unit_4" parent="." index="8" groups=[
 "units",
 ] instance=ExtResource( 7 )]
 
 position = Vector2( 32, 160 )
+speed = 100
 
-[node name="unit_5" parent="." index="8" groups=[
+[node name="unit_5" parent="." index="9" groups=[
 "units",
 ] instance=ExtResource( 7 )]
 
 position = Vector2( 96, 256 )
+speed = 100
 
-[node name="UI" type="CanvasLayer" parent="." index="9"]
+[node name="UI" type="CanvasLayer" parent="." index="10"]
 
 layer = 1
 offset = Vector2( 0, 0 )
